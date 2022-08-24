@@ -35,7 +35,7 @@ on: workflow_dispatch
   
 
 jobs:
-  build:
+  install_requirements:
     runs-on: ubuntu-latest
 
     steps:
@@ -46,14 +46,25 @@ jobs:
         with:
           python-version: 3.8 #install the python needed
 #           cache: 'pip'
-      - run: pip install "pyyaml>=6.0"
-      - run: pip install "pandas>=1.4.3"
-      - run: pip install "pandas>=1.4.3"
-      - run: pip install "gspread>=5.4.0"
-      - run: pip install "google>=3.0.0"
-      - run: pip install "google-auth-oauthlib>=0.5.2"
-      - run: pip install "google-api-python-client>=2.56.0"
-      - run: pip install "GitPython>=3.1.27"
+      - name: install packages
+        run: |
+            pip install "pyyaml>6.0"
+            pip install "pandas>=1.4.3"
+            pip install "pandas>=1.4.3"
+            pip install "gspread>=5.4.0"
+            pip install "google>=3.0.0"
+            pip install "google-auth-oauthlib>=0.5.2"
+            pip install "google-api-python-client>=2.56.0"
+            pip install "GitPython>=3.1.27"
+        
+#       - run: pip install "pyyaml>=6.0"
+#       - run: pip install "pandas>=1.4.3"
+#       - run: pip install "pandas>=1.4.3"
+#       - run: pip install "gspread>=5.4.0"
+#       - run: pip install "google>=3.0.0"
+#       - run: pip install "google-auth-oauthlib>=0.5.2"
+#       - run: pip install "google-api-python-client>=2.56.0"
+#       - run: pip install "GitPython>=3.1.27"
       
       
       #- name: execute py script # run the run.py to get the latest data
